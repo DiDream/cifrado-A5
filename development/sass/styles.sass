@@ -1,0 +1,158 @@
+$width-elemento: 40px
+$width-row: 240px
+$height-vector: 110px
+=arrowWH($i, $j, $rows, $w-row: $width-row) /*$i=>number element, $j=>number row, $rows=>number rows*/
+  width: $w-row - ($i * $width-elemento)
+  height: 50px - $j * (15px / ($rows - 1)) /*rows-1 porque no se procesan las propiedades de la primera arrow-operation*/
+
+*
+    box-sizing: border-box
+body
+    padding: 40px
+    padding-left: 100px
+.container
+    width: 1000px
+    margin: 0 auto
+.vector
+    display: flex
+    height: $height-vector
+    &.vector-1
+        .elemento:first-of-type
+            .arrow-out
+                height: 300px
+                width: 75px
+        .elemento:nth-of-type(2)
+            .arrow-operation
+                +arrowWH(1,1,4)
+        .elemento:nth-of-type(3)
+            .arrow-operation
+                +arrowWH(2,2,4)
+        .elemento:nth-of-type(6)
+            .arrow-operation
+                +arrowWH(5,3,4)
+        .arrow-in
+            width: calc(11*#{$width-elemento})
+    &.vector-2
+        .elemento:first-of-type
+            .arrow-out
+                height: 300 - (1 * $height-vector)
+                width: 70px
+        .elemento:nth-of-type(2)
+            .arrow-operation
+                +arrowWH(1,1,2)
+        .arrow-in
+            width: calc(14*#{$width-elemento})
+    &.vector-3
+        .elemento:first-of-type
+            .arrow-out
+                height: 300 - (2 * $height-vector)
+                width: 65px
+        .elemento:nth-of-type(1)
+            .arrow-operation
+                width: 640px
+        .elemento:nth-of-type(2)
+            .arrow-operation
+                +arrowWH(1,1,4,640px)
+        .elemento:nth-of-type(3)
+            .arrow-operation
+                +arrowWH(2,2,4,640px)
+        .elemento:nth-of-type(16)
+            .arrow-operation
+                +arrowWH(15,3,4,640px)
+        .arrow-in
+            width: calc(4*#{$width-elemento})
+    .result
+        width: 900px
+        height: 100%
+        border: 1px solid black
+        top: 50%
+        position: relative
+        left: 130%
+.elemento
+    min-width: $width-elemento
+    height: 40px
+    background-color: #4A4A4A
+    position: relative
+    border: 1px solid green
+    .arrow
+        position: absolute
+        .xor
+            position: absolute
+            width: 40px
+            height: 40px
+            background-color: red
+            border-radius: 50%
+
+            &:before
+                content: "+"
+                width: 100%
+                height: 100%
+                display: flex
+                align-items: center
+                justify-content: center
+                color: #fff
+                font-size: 50px
+        &::after
+            content: ''
+            position: absolute
+        &.arrow-out
+            right: 100%
+            top: 50%
+            border-top: 1px solid black
+            border-left: 1px solid black
+            .xor
+                top: 100%
+                right: 100%
+                transform: translateX(50%)
+                .arrow-result
+                    width: 50px
+                    height: 100px
+            &:after
+                border-left: 3px solid transparent
+                border-right: 3px solid transparent
+                border-top: 10px solid black
+                border-bottom: 10px solid transparent
+                left: 0px
+                top: 100%
+                transform: translate(-50%,-50%)
+        &.arrow-in
+            height: calc(50px - 7px)
+            border-right: 1px solid black
+            border-bottom: 1px solid black
+            top: 100%
+            right: 50%
+            &:after
+                border-left: 3px solid transparent
+                border-right: 3px solid transparent
+                border-top: 10px solid transparent
+                border-bottom: 10px solid black
+                right: 0px
+                top: 0px
+                transform: translate(50%,-50%)
+            .value-in
+                height: 30px
+                width: 30px
+                background-color: green
+                position: absolute
+                bottom: 0px
+                transform: translateY(50%)
+                left: 20px
+        &.arrow-operation
+            top: 100%
+            left: 50%
+            width: $width-row
+            height: 50px
+            border-left: 1px solid black
+            border-bottom: 1px solid black
+            .xor
+                top: 100%
+                left: 100%
+                transform: translateY(calc(-50% - 7.5px))
+            &:after
+                border-left: 10px solid black
+                border-right: 10px solid transparent
+                border-top: 3px solid transparent
+                border-bottom: 3px solid transparent
+                left: 100%
+                top: 100%
+                transform: translate(-10px,-2.5px) //Tener en cuenta el alto de la linea de la arrow-operation

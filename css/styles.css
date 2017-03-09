@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  padding: 40px;
+  padding-left: 100px; }
+
+.container {
+  width: 1000px;
+  margin: 0 auto; }
+
+.vector {
+  display: flex;
+  height: 110px; }
+  .vector.vector-1 .elemento:first-of-type .arrow-out {
+    height: 300px;
+    width: 75px; }
+  .vector.vector-1 .elemento:nth-of-type(2) .arrow-operation {
+    width: 200px;
+    height: 45px; }
+  .vector.vector-1 .elemento:nth-of-type(3) .arrow-operation {
+    width: 160px;
+    height: 40px; }
+  .vector.vector-1 .elemento:nth-of-type(6) .arrow-operation {
+    width: 40px;
+    height: 35px; }
+  .vector.vector-1 .arrow-in {
+    width: calc(11*40px); }
+  .vector.vector-2 .elemento:first-of-type .arrow-out {
+    height: 190px;
+    width: 70px; }
+  .vector.vector-2 .elemento:nth-of-type(2) .arrow-operation {
+    width: 200px;
+    height: 35px; }
+  .vector.vector-2 .arrow-in {
+    width: calc(14*40px); }
+  .vector.vector-3 .elemento:first-of-type .arrow-out {
+    height: 80px;
+    width: 65px; }
+  .vector.vector-3 .elemento:nth-of-type(1) .arrow-operation {
+    width: 640px; }
+  .vector.vector-3 .elemento:nth-of-type(2) .arrow-operation {
+    width: 600px;
+    height: 45px; }
+  .vector.vector-3 .elemento:nth-of-type(3) .arrow-operation {
+    width: 560px;
+    height: 40px; }
+  .vector.vector-3 .elemento:nth-of-type(16) .arrow-operation {
+    width: 40px;
+    height: 35px; }
+  .vector.vector-3 .arrow-in {
+    width: calc(4*40px); }
+  .vector .result {
+    width: 900px;
+    height: 100%;
+    border: 1px solid black;
+    top: 50%;
+    position: relative;
+    left: 130%; }
+
+.elemento {
+  min-width: 40px;
+  height: 40px;
+  background-color: #4A4A4A;
+  position: relative;
+  border: 1px solid green; }
+  .elemento .arrow {
+    position: absolute; }
+    .elemento .arrow .xor {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: red;
+      border-radius: 50%; }
+      .elemento .arrow .xor:before {
+        content: "+";
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 50px; }
+    .elemento .arrow::after {
+      content: '';
+      position: absolute; }
+    .elemento .arrow.arrow-out {
+      right: 100%;
+      top: 50%;
+      border-top: 1px solid black;
+      border-left: 1px solid black; }
+      .elemento .arrow.arrow-out .xor {
+        top: 100%;
+        right: 100%;
+        transform: translateX(50%); }
+        .elemento .arrow.arrow-out .xor .arrow-result {
+          width: 50px;
+          height: 100px; }
+      .elemento .arrow.arrow-out:after {
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-top: 10px solid black;
+        border-bottom: 10px solid transparent;
+        left: 0px;
+        top: 100%;
+        transform: translate(-50%, -50%); }
+    .elemento .arrow.arrow-in {
+      height: calc(50px - 7px);
+      border-right: 1px solid black;
+      border-bottom: 1px solid black;
+      top: 100%;
+      right: 50%; }
+      .elemento .arrow.arrow-in:after {
+        border-left: 3px solid transparent;
+        border-right: 3px solid transparent;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid black;
+        right: 0px;
+        top: 0px;
+        transform: translate(50%, -50%); }
+      .elemento .arrow.arrow-in .value-in {
+        height: 30px;
+        width: 30px;
+        background-color: green;
+        position: absolute;
+        bottom: 0px;
+        transform: translateY(50%);
+        left: 20px; }
+    .elemento .arrow.arrow-operation {
+      top: 100%;
+      left: 50%;
+      width: 240px;
+      height: 50px;
+      border-left: 1px solid black;
+      border-bottom: 1px solid black; }
+      .elemento .arrow.arrow-operation .xor {
+        top: 100%;
+        left: 100%;
+        transform: translateY(calc(-50% - 7.5px)); }
+      .elemento .arrow.arrow-operation:after {
+        border-left: 10px solid black;
+        border-right: 10px solid transparent;
+        border-top: 3px solid transparent;
+        border-bottom: 3px solid transparent;
+        left: 100%;
+        top: 100%;
+        transform: translate(-10px, -2.5px); }
