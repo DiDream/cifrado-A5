@@ -3,97 +3,145 @@ html
     head
         meta(charset="UTF-8")
         title Cifrado A5/1
+        link(rel="stylesheet" href="css/normalize.css")
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
         link(rel="stylesheet" href="css/styles.css")
+
     body
-        .container
+        .modal
+            .box
+                #close-modal
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                .form
+                    label Inserta la primera clave. 19 dígitos.
+                    input(type="text" maxlength="19" placeholder="010100010...")
+                    label Inserta la segunda clave. 22 dígitos.
+                    input(type="text" maxlength="22" placeholder="010100010...")
+                    label Inserta la tercera clave. 23 dígitos.
+                    input(type="text" maxlength="23" placeholder="010100010...")
+                    button Guardar
+        header.mean
+            button#next-step Paso siguiente
+            button#new-values Introducir nuevos valores
+
+        .cifrado-a51
             .vector.vector-1
-                .elemento
-                    .arrow.arrow-out
-                    .arrow.arrow-operation
-                        .xor
-                .elemento
-                    .arrow.arrow-operation
-                .elemento
-                    .arrow.arrow-operation
-                .elemento
-                .elemento
-                .elemento
-                    .arrow.arrow-operation
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                    .arrow.arrow-in
-                    .value-in
+                .circuit
+                    .element.pos-1
+                        .arrow.arrow-out
+                        .arrow.arrow-b-r.arrow-operation
+                            .xor
+                    .element.pos-2
+                        .arrow.arrow-b-r.arrow-operation
+                    .element.pos-3
+                        .arrow.arrow-b-r.arrow-operation
+                    .element.pos-6
+                        .arrow.arrow-b-r.arrow-operation
+                    .element.pos-19
+                        .arrow.arrow-r-t.arrow-in
+                            .value-in
+                .container
+                    .elements
+                        .element
+                            span.value 0
+                            span.index 19
+                        .element
+                            span.value 0
+                            span.index 18
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                    
             .vector.vector-2
-                .elemento
-                    .arrow.arrow-out
-                        .xor
-                            .arrow.arrow-operation.arrow-result
+                .circuit
+                    .element.pos-1
+                        .arrow.arrow-out
+                            .xor
+                            .arrow.arrow-b-r.arrow-result
                                 section.result Resultado generado
-                    .arrow.arrow-operation
-                        .xor
-                .elemento
-                    .arrow.arrow-operation
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                    .arrow.arrow-in
-                    .value-in
+                        .arrow.arrow-b-r.arrow-operation
+                            .xor
+                    .element.pos-2
+                        .arrow.arrow-b-r.arrow-operation
+                    .element.pos-22
+                        .arrow.arrow-r-t.arrow-in
+                            .value-in
+                .container
+                    .elements
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+
             .vector.vector-3
-                .elemento
-                    .arrow.arrow-out
-                    .arrow.arrow-operation
-                        .xor
-                .elemento
-                    .arrow.arrow-operation
-                .elemento
-                    .arrow.arrow-operation
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                    .arrow.arrow-operation
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                .elemento
-                    .arrow.arrow-in
-                    .value-in
+                .circuit
+                    .element.pos-1
+                        .arrow.arrow-out
+                        .arrow.arrow-b-r.arrow-operation
+                            .xor
+                    .element.pos-2
+                        .arrow.arrow-b-r.arrow-operation
+                    .element.pos-3
+                        .arrow.arrow-b-r.arrow-operation
+                    .element.pos-16
+                        .arrow.arrow-b-r.arrow-operation
+                    .element.pos-23
+                        .arrow.arrow-r-t.arrow-in
+                            .value-in
+                .container
+                    .elements
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element
+                        .element

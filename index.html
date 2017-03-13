@@ -3,121 +3,175 @@
   <head>
     <meta charset="UTF-8">
     <title>Cifrado A5/1</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
-    <div class="container">
+    <div class="modal">
+      <div class="box">
+        <div id="close-modal"><i class="fa fa-times" aria-hidden="true"></i></div>
+        <div class="form">
+          <label>Inserta la primera clave. 19 dígitos.</label>
+          <input type="text" maxlength="19" placeholder="010100010...">
+          <label>Inserta la segunda clave. 22 dígitos.</label>
+          <input type="text" maxlength="22" placeholder="010100010...">
+          <label>Inserta la tercera clave. 23 dígitos.</label>
+          <input type="text" maxlength="23" placeholder="010100010...">
+          <button>Guardar</button>
+        </div>
+      </div>
+    </div>
+    <header class="mean">
+      <button id="next-step">Paso siguiente</button>
+      <button id="new-values">Introducir nuevos valores</button>
+    </header>
+    <div class="cifrado-a51">
       <div class="vector vector-1">
-        <div class="elemento">
-          <div class="arrow arrow-out"></div>
-          <div class="arrow arrow-operation">
-            <div class="xor"></div>
+        <div class="circuit">
+          <div class="element pos-1">
+            <div class="arrow arrow-out"></div>
+            <div class="arrow arrow-b-r arrow-operation">
+              <div class="xor"></div>
+            </div>
+          </div>
+          <div class="element pos-2">
+            <div class="arrow arrow-b-r arrow-operation"></div>
+          </div>
+          <div class="element pos-3">
+            <div class="arrow arrow-b-r arrow-operation"></div>
+          </div>
+          <div class="element pos-6">
+            <div class="arrow arrow-b-r arrow-operation"></div>
+          </div>
+          <div class="element pos-19">
+            <div class="arrow arrow-r-t arrow-in">
+              <div class="value-in"></div>
+            </div>
           </div>
         </div>
-        <div class="elemento">
-          <div class="arrow arrow-operation"></div>
-        </div>
-        <div class="elemento">
-          <div class="arrow arrow-operation"></div>
-        </div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento">
-          <div class="arrow arrow-operation"></div>
-        </div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento">
-          <div class="arrow arrow-in"></div>
-          <div class="value-in"></div>
+        <div class="container">
+          <div class="elements">
+            <div class="element"><span class="value">0</span><span class="index">19</span></div>
+            <div class="element"><span class="value">0</span><span class="index">18</span></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+          </div>
         </div>
       </div>
       <div class="vector vector-2">
-        <div class="elemento">
-          <div class="arrow arrow-out">
-            <div class="xor">
-              <div class="arrow arrow-operation arrow-result">
+        <div class="circuit">
+          <div class="element pos-1">
+            <div class="arrow arrow-out">
+              <div class="xor"></div>
+              <div class="arrow arrow-b-r arrow-result">
                 <section class="result">Resultado generado</section>
               </div>
             </div>
+            <div class="arrow arrow-b-r arrow-operation">
+              <div class="xor"></div>
+            </div>
           </div>
-          <div class="arrow arrow-operation">
-            <div class="xor"></div>
+          <div class="element pos-2">
+            <div class="arrow arrow-b-r arrow-operation"></div>
+          </div>
+          <div class="element pos-22">
+            <div class="arrow arrow-r-t arrow-in">
+              <div class="value-in"></div>
+            </div>
           </div>
         </div>
-        <div class="elemento">
-          <div class="arrow arrow-operation"></div>
-        </div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento">
-          <div class="arrow arrow-in"></div>
-          <div class="value-in"></div>
+        <div class="container">
+          <div class="elements">
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+          </div>
         </div>
       </div>
       <div class="vector vector-3">
-        <div class="elemento">
-          <div class="arrow arrow-out"></div>
-          <div class="arrow arrow-operation">
-            <div class="xor"></div>
+        <div class="circuit">
+          <div class="element pos-1">
+            <div class="arrow arrow-out"></div>
+            <div class="arrow arrow-b-r arrow-operation">
+              <div class="xor"></div>
+            </div>
+          </div>
+          <div class="element pos-2">
+            <div class="arrow arrow-b-r arrow-operation"></div>
+          </div>
+          <div class="element pos-3">
+            <div class="arrow arrow-b-r arrow-operation"></div>
+          </div>
+          <div class="element pos-16">
+            <div class="arrow arrow-b-r arrow-operation"></div>
+          </div>
+          <div class="element pos-23">
+            <div class="arrow arrow-r-t arrow-in">
+              <div class="value-in"></div>
+            </div>
           </div>
         </div>
-        <div class="elemento">
-          <div class="arrow arrow-operation"></div>
-        </div>
-        <div class="elemento">
-          <div class="arrow arrow-operation"></div>
-        </div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento">
-          <div class="arrow arrow-operation"></div>
-        </div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento"></div>
-        <div class="elemento">
-          <div class="arrow arrow-in"></div>
-          <div class="value-in"></div>
+        <div class="container">
+          <div class="elements">
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+            <div class="element"></div>
+          </div>
         </div>
       </div>
     </div>
