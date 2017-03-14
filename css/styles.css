@@ -31,14 +31,14 @@ body {
       top: 5px;
       font-size: 20px;
       cursor: pointer; }
-    .modal .box .form {
+    .modal .box form {
       text-align: left; }
-      .modal .box .form label {
+      .modal .box form label {
         margin-top: 15px;
         display: block;
         font-size: 15px;
         color: #444; }
-      .modal .box .form input[type="text"] {
+      .modal .box form input[type="text"] {
         width: 100%;
         height: 30px;
         margin: 5px 0;
@@ -46,7 +46,7 @@ body {
         border: 2px solid #CACACA;
         border-radius: 5px;
         padding-left: 5px; }
-      .modal .box .form button {
+      .modal .box form button#save-values {
         border: 0px;
         color: #fff;
         background-color: #973689;
@@ -86,75 +86,75 @@ header.mean {
   position: relative;
   display: inline-block;
   height: 110px; }
-  .vector.vector-1 .container {
+  .vector#vector-LFSR-1 .container {
     width: 760px; }
-  .vector.vector-1 .circuit .pos-1 {
+  .vector#vector-LFSR-1 .circuit .pos-1 {
     left: 0px; }
-    .vector.vector-1 .circuit .pos-1 .arrow-out {
+    .vector#vector-LFSR-1 .circuit .pos-1 .arrow-out {
       height: 300px;
       width: 75px; }
-  .vector.vector-1 .circuit .pos-2 {
+  .vector#vector-LFSR-1 .circuit .pos-2 {
     left: 40px; }
-    .vector.vector-1 .circuit .pos-2 .arrow-operation {
+    .vector#vector-LFSR-1 .circuit .pos-2 .arrow-operation {
       width: 200px;
       height: 45px; }
-  .vector.vector-1 .circuit .pos-3 {
+  .vector#vector-LFSR-1 .circuit .pos-3 {
     left: 80px; }
-    .vector.vector-1 .circuit .pos-3 .arrow-operation {
+    .vector#vector-LFSR-1 .circuit .pos-3 .arrow-operation {
       width: 160px;
       height: 40px; }
-  .vector.vector-1 .circuit .pos-6 {
+  .vector#vector-LFSR-1 .circuit .pos-6 {
     left: 200px; }
-    .vector.vector-1 .circuit .pos-6 .arrow-operation {
+    .vector#vector-LFSR-1 .circuit .pos-6 .arrow-operation {
       width: 40px;
       height: 35px; }
-  .vector.vector-1 .circuit .pos-19 {
+  .vector#vector-LFSR-1 .circuit .pos-19 {
     left: 720px; }
-    .vector.vector-1 .circuit .pos-19 .arrow-in {
+    .vector#vector-LFSR-1 .circuit .pos-19 .arrow-in {
       width: 440px; }
-  .vector.vector-2 .container {
+  .vector#vector-LFSR-2 .container {
     width: 880px; }
-  .vector.vector-2 .circuit .pos-1 {
+  .vector#vector-LFSR-2 .circuit .pos-1 {
     left: 0px; }
-    .vector.vector-2 .circuit .pos-1 .arrow-out {
+    .vector#vector-LFSR-2 .circuit .pos-1 .arrow-out {
       height: 190px;
       width: 70px; }
-  .vector.vector-2 .circuit .pos-2 {
+  .vector#vector-LFSR-2 .circuit .pos-2 {
     left: 40px; }
-    .vector.vector-2 .circuit .pos-2 .arrow-operation {
+    .vector#vector-LFSR-2 .circuit .pos-2 .arrow-operation {
       width: 200px;
       height: 35px; }
-  .vector.vector-2 .circuit .pos-22 {
+  .vector#vector-LFSR-2 .circuit .pos-22 {
     left: 840px; }
-    .vector.vector-2 .circuit .pos-22 .arrow-in {
+    .vector#vector-LFSR-2 .circuit .pos-22 .arrow-in {
       width: 560px; }
-  .vector.vector-3 .container {
+  .vector#vector-LFSR-3 .container {
     width: 920px; }
-  .vector.vector-3 .circuit .pos-1 {
+  .vector#vector-LFSR-3 .circuit .pos-1 {
     left: 0px; }
-    .vector.vector-3 .circuit .pos-1 .arrow-out {
+    .vector#vector-LFSR-3 .circuit .pos-1 .arrow-out {
       height: 80px;
       width: 65px; }
-    .vector.vector-3 .circuit .pos-1 .arrow-operation {
+    .vector#vector-LFSR-3 .circuit .pos-1 .arrow-operation {
       width: 640px; }
-  .vector.vector-3 .circuit .pos-2 {
+  .vector#vector-LFSR-3 .circuit .pos-2 {
     left: 40px; }
-    .vector.vector-3 .circuit .pos-2 .arrow-operation {
+    .vector#vector-LFSR-3 .circuit .pos-2 .arrow-operation {
       width: 600px;
       height: 45px; }
-  .vector.vector-3 .circuit .pos-3 {
+  .vector#vector-LFSR-3 .circuit .pos-3 {
     left: 80px; }
-    .vector.vector-3 .circuit .pos-3 .arrow-operation {
+    .vector#vector-LFSR-3 .circuit .pos-3 .arrow-operation {
       width: 560px;
       height: 40px; }
-  .vector.vector-3 .circuit .pos-16 {
+  .vector#vector-LFSR-3 .circuit .pos-16 {
     left: 600px; }
-    .vector.vector-3 .circuit .pos-16 .arrow-operation {
+    .vector#vector-LFSR-3 .circuit .pos-16 .arrow-operation {
       width: 40px;
       height: 35px; }
-  .vector.vector-3 .circuit .pos-23 {
+  .vector#vector-LFSR-3 .circuit .pos-23 {
     left: 880px; }
-    .vector.vector-3 .circuit .pos-23 .arrow-in {
+    .vector#vector-LFSR-3 .circuit .pos-23 .arrow-in {
       width: 200px; }
 
 .element {
@@ -174,14 +174,18 @@ header.mean {
     position: relative;
     background-color: #4A4A4A;
     border: 1px solid #179D9C; }
+    .elements .element.registry {
+      background-color: #179D9C; }
     .elements .element .value {
-      width: 100%;
-      height: 100%;
+      position: relative;
+      width: 40px;
+      height: 40px;
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 25px;
-      color: #fff; }
+      color: #fff;
+      transition: all 1s linear; }
     .elements .element .index {
       position: absolute;
       right: 2px;
@@ -189,7 +193,7 @@ header.mean {
       font-size: 10px;
       color: #fff; }
 
-.result {
+#result {
   width: 900px;
   height: 100%;
   border: 1px solid #DADADA;
@@ -262,7 +266,12 @@ header.mean {
       position: absolute;
       bottom: 0px;
       transform: translateY(50%);
-      left: 20px; }
+      left: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 20px; }
   .arrow.arrow-operation {
     top: 100%;
     left: 50%;

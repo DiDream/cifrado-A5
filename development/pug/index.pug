@@ -12,20 +12,22 @@ html
             .box
                 #close-modal
                     <i class="fa fa-times" aria-hidden="true"></i>
-                .form
+                form#form-values
                     label Inserta la primera clave. 19 dígitos.
-                    input(type="text" maxlength="19" placeholder="010100010...")
+                    input(type="text" pattern="[01]{19,19}" maxlength="19" placeholder="010100010..." required=true id="LFSR-1")
                     label Inserta la segunda clave. 22 dígitos.
-                    input(type="text" maxlength="22" placeholder="010100010...")
+                    input(type="text" pattern="[01]{22,22}" maxlength="22" placeholder="010100010..." required=true id="LFSR-2")
                     label Inserta la tercera clave. 23 dígitos.
-                    input(type="text" maxlength="23" placeholder="010100010...")
-                    button Guardar
+                    input(type="text" pattern="[01]{23,23}" maxlength="23" placeholder="010100010..." required=true id="LFSR-3")
+                    button#save-values Guardar
+                    
         header.mean
             button#next-step Paso siguiente
             button#new-values Introducir nuevos valores
+            button#random-values Generar valores aleatorios
 
         .cifrado-a51
-            .vector.vector-1
+            .vector#vector-LFSR-1
                 .circuit
                     .element.pos-1
                         .arrow.arrow-out
@@ -43,11 +45,6 @@ html
                 .container
                     .elements
                         .element
-                            span.value 0
-                            span.index 19
-                        .element
-                            span.value 0
-                            span.index 18
                         .element
                         .element
                         .element
@@ -57,6 +54,7 @@ html
                         .element
                         .element
                         .element
+                        .element.registry
                         .element
                         .element
                         .element
@@ -66,13 +64,13 @@ html
                         .element
                         .element
                     
-            .vector.vector-2
+            .vector#vector-LFSR-2
                 .circuit
                     .element.pos-1
                         .arrow.arrow-out
                             .xor
                             .arrow.arrow-b-r.arrow-result
-                                section.result Resultado generado
+                                section#result
                         .arrow.arrow-b-r.arrow-operation
                             .xor
                     .element.pos-2
@@ -93,7 +91,7 @@ html
                         .element
                         .element
                         .element
-                        .element
+                        .element.registry
                         .element
                         .element
                         .element
@@ -105,7 +103,7 @@ html
                         .element
                         .element
 
-            .vector.vector-3
+            .vector#vector-LFSR-3
                 .circuit
                     .element.pos-1
                         .arrow.arrow-out
@@ -134,6 +132,7 @@ html
                         .element
                         .element
                         .element
+                        .element.registry
                         .element
                         .element
                         .element
@@ -144,4 +143,7 @@ html
                         .element
                         .element
                         .element
-                        .element
+        script(src="https://code.jquery.com/jquery-2.2.4.min.js"
+			  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+			  crossorigin="anonymous")
+        script(src="js/index.js")

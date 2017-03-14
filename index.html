@@ -11,23 +11,24 @@
     <div class="modal">
       <div class="box">
         <div id="close-modal"><i class="fa fa-times" aria-hidden="true"></i></div>
-        <div class="form">
+        <form id="form-values">
           <label>Inserta la primera clave. 19 dígitos.</label>
-          <input type="text" maxlength="19" placeholder="010100010...">
+          <input type="text" pattern="[01]{19,19}" maxlength="19" placeholder="010100010..." required id="LFSR-1">
           <label>Inserta la segunda clave. 22 dígitos.</label>
-          <input type="text" maxlength="22" placeholder="010100010...">
+          <input type="text" pattern="[01]{22,22}" maxlength="22" placeholder="010100010..." required id="LFSR-2">
           <label>Inserta la tercera clave. 23 dígitos.</label>
-          <input type="text" maxlength="23" placeholder="010100010...">
-          <button>Guardar</button>
-        </div>
+          <input type="text" pattern="[01]{23,23}" maxlength="23" placeholder="010100010..." required id="LFSR-3">
+          <button id="save-values">Guardar</button>
+        </form>
       </div>
     </div>
     <header class="mean">
       <button id="next-step">Paso siguiente</button>
       <button id="new-values">Introducir nuevos valores</button>
+      <button id="random-values">Generar valores aleatorios</button>
     </header>
     <div class="cifrado-a51">
-      <div class="vector vector-1">
+      <div class="vector" id="vector-LFSR-1">
         <div class="circuit">
           <div class="element pos-1">
             <div class="arrow arrow-out"></div>
@@ -52,8 +53,6 @@
         </div>
         <div class="container">
           <div class="elements">
-            <div class="element"><span class="value">0</span><span class="index">19</span></div>
-            <div class="element"><span class="value">0</span><span class="index">18</span></div>
             <div class="element"></div>
             <div class="element"></div>
             <div class="element"></div>
@@ -63,6 +62,8 @@
             <div class="element"></div>
             <div class="element"></div>
             <div class="element"></div>
+            <div class="element"></div>
+            <div class="element registry"></div>
             <div class="element"></div>
             <div class="element"></div>
             <div class="element"></div>
@@ -74,13 +75,13 @@
           </div>
         </div>
       </div>
-      <div class="vector vector-2">
+      <div class="vector" id="vector-LFSR-2">
         <div class="circuit">
           <div class="element pos-1">
             <div class="arrow arrow-out">
               <div class="xor"></div>
               <div class="arrow arrow-b-r arrow-result">
-                <section class="result">Resultado generado</section>
+                <section id="result"></section>
               </div>
             </div>
             <div class="arrow arrow-b-r arrow-operation">
@@ -109,7 +110,7 @@
             <div class="element"></div>
             <div class="element"></div>
             <div class="element"></div>
-            <div class="element"></div>
+            <div class="element registry"></div>
             <div class="element"></div>
             <div class="element"></div>
             <div class="element"></div>
@@ -123,7 +124,7 @@
           </div>
         </div>
       </div>
-      <div class="vector vector-3">
+      <div class="vector" id="vector-LFSR-3">
         <div class="circuit">
           <div class="element pos-1">
             <div class="arrow arrow-out"></div>
@@ -160,7 +161,7 @@
             <div class="element"></div>
             <div class="element"></div>
             <div class="element"></div>
-            <div class="element"></div>
+            <div class="element registry"></div>
             <div class="element"></div>
             <div class="element"></div>
             <div class="element"></div>
@@ -175,5 +176,7 @@
         </div>
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>

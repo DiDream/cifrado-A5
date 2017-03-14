@@ -39,7 +39,7 @@ body
             top: 5px
             font-size: 20px
             cursor: pointer
-        .form
+        form
             text-align: left
             label
                 margin-top: 15px
@@ -54,7 +54,7 @@ body
                 border: 2px solid #CACACA
                 border-radius: 5px
                 padding-left: 5px
-            button
+            button#save-values
 
                 border: 0px
                 color: #fff
@@ -92,7 +92,10 @@ header.mean
     position: relative
     display: inline-block
     height: $height-vector
-    &.vector-1
+    // &:hover
+    //     .value
+    //         transform: translateX(-40px)
+    &#vector-LFSR-1
         .container
             width: 760px
         .circuit
@@ -117,7 +120,7 @@ header.mean
                 left: 18 * 40px
                 .arrow-in
                     width: 11 * $width-element
-    &.vector-2
+    &#vector-LFSR-2
         .container
             width: 880px
         .circuit
@@ -134,7 +137,7 @@ header.mean
                 left: 21 * 40px
                 .arrow-in
                     width: 14 * $width-element
-    &.vector-3
+    &#vector-LFSR-3
         .container
             width: 920px
         .circuit
@@ -180,21 +183,26 @@ header.mean
         position: relative
         background-color: #4A4A4A
         border: 1px solid $green
+        &.registry
+            background-color: $green
+
         .value
-            width: 100%
-            height: 100%
+            position: relative
+            width: 40px
+            height: 40px
             display: flex
             justify-content: center
             align-items: center
             font-size: 25px
             color: #fff
+            transition: all 1s linear
         .index
             position: absolute
             right: 2px
             bottom: 0px
             font-size: 10px
             color: #fff
-.result
+#result
     width: 900px
     height: 100%
     border: 1px solid #DADADA
@@ -271,6 +279,11 @@ header.mean
             bottom: 0px
             transform: translateY(50%)
             left: 20px
+            display: flex
+            justify-content: center
+            align-items: center
+            color: #fff
+            font-size: 20px
     &.arrow-operation
         top: 100%
         left: 50%
