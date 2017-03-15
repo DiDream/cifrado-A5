@@ -46,7 +46,7 @@ $('#form-values').on('submit', function(e){
     }
     $('#original-message .elements').html(tmp);
 
-    
+    // initialize(10); //modificacion de la practica
 });
 $('#random-values').on('click',function(){
     $('#LFSR-1').val(RandomKey(19));
@@ -54,6 +54,29 @@ $('#random-values').on('click',function(){
     $('#LFSR-3').val(RandomKey(23));
 });
 
+//Modificacion de la practica
+function initialize(times){
+    for(var i=0; i<times; i++){
+        var shift= MajorityFunction([lfsr[0][8], lfsr[1][10], lfsr[2][10]])
+        var xorValues= [
+            XorOperation([lfsr[0][18],lfsr[0][17],lfsr[0][16],lfsr[0][13]]),
+            XorOperation([lfsr[1][21],lfsr[1][20]]),
+            XorOperation([lfsr[2][22],lfsr[2][21],lfsr[2][20],lfsr[2][7]])
+        ];
+        for(var j=0; j<shift.length; j++){
+            var index = shift[j];
+            lfsr[index].pop();
+            lfsr[index].unshift(xorValues[index]);
+        }
+
+    }
+    for(var i=0; i<lfsr.length; i++){
+        var j = lfsr[i].length-1;
+        vectorSelectors[i].find('.value').each(function(){
+            $(this).text(lfsr[i][j--]);
+        });
+    }
+}
 function Shift(op, newValues){
     for(var i=0; i<op.length; i++){
         var index = op[i];
