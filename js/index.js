@@ -3,14 +3,16 @@ var
     body = $('body'),
     nextStep = $('button#next-step'),
     vectorSelectors= [
-            $('#vector-LFSR-1 .elements .element'),
-            $('#vector-LFSR-2 .elements .element'),
-            $('#vector-LFSR-3 .elements .element')
+            $('#vector-LFSR-1 .values'),
+            $('#vector-LFSR-2 .values'),
+            $('#vector-LFSR-3 .values')
         ],
     lfsr = [],
+    message,
     newValues = [],
     shiftVector=[],
-    method = stepOne;
+    method = stepOne,
+    count=0;
 
 nextStep.on('click',function(){
 
@@ -24,64 +26,92 @@ $('#close-modal').on('click',function(){
 $('#form-values').on('submit', function(e){
     e.preventDefault();
     body.removeClass('modal-open');
+
+    //reset
+    $('#result-message .elements').empty();
+    $('#result #cipher-sec .elements').empty();
+    count=0;
+    lfsr=[];
+    method = stepOne;
+
     GenerateVectors({
         'LFSR-1': $('#LFSR-1').val(),
         'LFSR-2': $('#LFSR-2').val(),
         'LFSR-3': $('#LFSR-3').val()
     });
-});
-$('#random-values').on('click', function(){
+    message = $('#input-message').val();
+    var tmp='';
+    for(var i=0; i< message.length; i++){
+        tmp +=`<div class="element">${message[i]}</div>`;
+    }
+    $('#original-message .elements').html(tmp);
 
-    GenerateVectors({
-        'LFSR-1': RandomKey(19),
-        'LFSR-2': RandomKey(22),
-        'LFSR-3': RandomKey(23)
-    });
+    
+});
+$('#random-values').on('click',function(){
+    $('#LFSR-1').val(RandomKey(19));
+    $('#LFSR-2').val(RandomKey(22));
+    $('#LFSR-3').val(RandomKey(23));
 });
 
 function Shift(op, newValues){
     for(var i=0; i<op.length; i++){
         var index = op[i];
         lfsr[  index].pop()
-        lfsr[ index ].unshift(newValues[i]);
+        lfsr[ index ].unshift(newValues[index]);
         var j= lfsr[index].length -1;
+
+
         vectorSelectors[index].find('.value').each(function(){
 
             $(this).text(lfsr[index][j--]);
         });
+
     }
 
 }
+function CipherOperation(c,m){
+    var result = XorOperation([c,m])
+
+
+    $('#result-message .elements').append(`<div class="element">${result}</div>`);
+}
 function stepOne(){
+    if(count<message.length) {
+        newValues= [
+            XorOperation([lfsr[0][18],lfsr[0][17],lfsr[0][16],lfsr[0][13]]),
+            XorOperation([lfsr[1][21],lfsr[1][20]]),
+            XorOperation([lfsr[2][22],lfsr[2][21],lfsr[2][20],lfsr[2][7]])
+        ];
 
-    newValues= [
-        XorOperation([lfsr[0][18],lfsr[0][17],lfsr[0][16],lfsr[0][13]]),
-        XorOperation([lfsr[1][21],lfsr[1][20]]),
-        XorOperation([lfsr[2][22],lfsr[2][21],lfsr[2][20],lfsr[2][7]])
-    ];
+        $('#vector-LFSR-1 .value-in').text(newValues[0]);
+        $('#vector-LFSR-2 .value-in').text(newValues[1]);
+        $('#vector-LFSR-3 .value-in').text(newValues[2]);
+        shiftVector = MajorityFunction([lfsr[0][8], lfsr[1][10], lfsr[2][10]]);
+        method= stepTwo;
+    }else{
+        method = function(){
+            alert('El mensaje ha sido cifrado.');
+        }
 
-    $('#vector-LFSR-1 .value-in').text(newValues[0]);
-    $('#vector-LFSR-2 .value-in').text(newValues[1]);
-    $('#vector-LFSR-3 .value-in').text(newValues[2]);
-    shiftVector = MajorityFunction([lfsr[0][8], lfsr[1][10], lfsr[2][10]]);
-    method= stepTwo;
+        method();
+    }
 }
 function stepTwo(){
-    $('#vector-LFSR-1 .value-in').text('');
-    $('#vector-LFSR-2 .value-in').text('');
-    $('#vector-LFSR-3 .value-in').text('');
-    $('#result').append(XorOperation([lfsr[0][18], lfsr[1][21], lfsr[2][22]]));
-    Shift(shiftVector, newValues);
-    method = stepOne;
+
+        $('#vector-LFSR-1 .value-in').text('');
+        $('#vector-LFSR-2 .value-in').text('');
+        $('#vector-LFSR-3 .value-in').text('');
+
+        var cipher = XorOperation([lfsr[0][18], lfsr[1][21], lfsr[2][22]]);
+        $('#result #cipher-sec .elements').append(`<div class="element"> ${cipher}</div>`);
+        CipherOperation(cipher, message[count++]);
+        Shift(shiftVector, newValues);
+        method = stepOne;
+
 }
 $('#next-step').on('click', function(){
-
     method();
-
-
-
-
-
 });
 function MajorityFunction(op){
     // var ceros=0;
@@ -90,15 +120,14 @@ function MajorityFunction(op){
     // }
     // return ceros<2? 1: 0;
     var major = (op[0] + op[1] + op[2]) <2? 0: 1;
-    console.log(major);
     var shift=[];
     for(var i=0; i<op.length; i++){
         if(major==op[i]){
-            vectorSelectors[i].css('border-color','#179D9C');
+            vectorSelectors[i].find('.value').css('color','#FFF');
             shift.push(i);
         }
         else{
-            vectorSelectors[i].css('border-color','red');
+            vectorSelectors[i].find('.value').css('color','red');
         }
     }
     return shift;
@@ -119,23 +148,17 @@ function RandomKey(size){
 }
 
 function GenerateVectors(seed){
-    lfsr=[];
     var seedsName = ['LFSR-1', 'LFSR-2', 'LFSR-3'];
     for(var i=0; i< seedsName.length; i++) {
-        var vector=[];
+        var tmp ='';
         var array=[]
-        vectorSelectors[i].each(function(){
-            vector.push($(this));
-        });
-
         for(var j=0; j<seed[seedsName[i]].length; j++){
             var value = seed[seedsName[i]][j];
             var index = seed[seedsName[i]].length-j-1;
-            var tmp= `<span class='value'>${value}</span>
-                    <span class='index'>${index}</span>`;
-            vector[j].html(tmp);
+            tmp += `<span class='value'>${value}</span>`;
             array.unshift(parseInt(value) );
         }
+        vectorSelectors[i].html(tmp)
         lfsr.push(array);
     }
 }

@@ -12,12 +12,14 @@
       <div class="box">
         <div id="close-modal"><i class="fa fa-times" aria-hidden="true"></i></div>
         <form id="form-values">
+          <label>Inserta el mensaje a cifrar</label>
+          <input type="text" pattern="[01]{0,}" placeholder="010100010..." required id="input-message">
           <label>Inserta la primera clave. 19 dígitos.</label>
           <input type="text" pattern="[01]{19,19}" maxlength="19" placeholder="010100010..." required id="LFSR-1">
           <label>Inserta la segunda clave. 22 dígitos.</label>
           <input type="text" pattern="[01]{22,22}" maxlength="22" placeholder="010100010..." required id="LFSR-2">
           <label>Inserta la tercera clave. 23 dígitos.</label>
-          <input type="text" pattern="[01]{23,23}" maxlength="23" placeholder="010100010..." required id="LFSR-3">
+          <input type="text" pattern="[01]{23,23}" maxlength="23" placeholder="010100010..." required id="LFSR-3"><a id="random-values">Generar semillas aleatorias</a>
           <button id="save-values">Guardar</button>
         </form>
       </div>
@@ -25,155 +27,145 @@
     <header class="mean">
       <button id="next-step">Paso siguiente</button>
       <button id="new-values">Introducir nuevos valores</button>
-      <button id="random-values">Generar valores aleatorios</button>
     </header>
     <div class="cifrado-a51">
       <div class="vector" id="vector-LFSR-1">
-        <div class="circuit">
-          <div class="element pos-1">
+        <div class="elements">
+          <div class="element"><span class="index">18</span>
             <div class="arrow arrow-out"></div>
             <div class="arrow arrow-b-r arrow-operation">
               <div class="xor"></div>
             </div>
           </div>
-          <div class="element pos-2">
+          <div class="element"><span class="index">17</span>
             <div class="arrow arrow-b-r arrow-operation"></div>
           </div>
-          <div class="element pos-3">
+          <div class="element"><span class="index">16</span>
             <div class="arrow arrow-b-r arrow-operation"></div>
           </div>
-          <div class="element pos-6">
+          <div class="element"><span class="index">15</span></div>
+          <div class="element"><span class="index">14</span></div>
+          <div class="element"><span class="index">13</span>
             <div class="arrow arrow-b-r arrow-operation"></div>
           </div>
-          <div class="element pos-19">
+          <div class="element"><span class="index">12</span></div>
+          <div class="element"><span class="index">11</span></div>
+          <div class="element"><span class="index">10</span></div>
+          <div class="element"><span class="index">9</span></div>
+          <div class="element registry"><span class="index">8</span></div>
+          <div class="element"><span class="index">7</span></div>
+          <div class="element"><span class="index">6</span></div>
+          <div class="element"><span class="index">5</span></div>
+          <div class="element"><span class="index">4</span></div>
+          <div class="element"><span class="index">3</span></div>
+          <div class="element"><span class="index">2</span></div>
+          <div class="element"><span class="index">1</span></div>
+          <div class="element"><span class="index">0</span>
             <div class="arrow arrow-r-t arrow-in">
               <div class="value-in"></div>
             </div>
           </div>
         </div>
-        <div class="container">
-          <div class="elements">
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element registry"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-          </div>
-        </div>
+        <div class="values"></div>
       </div>
       <div class="vector" id="vector-LFSR-2">
-        <div class="circuit">
-          <div class="element pos-1">
+        <div class="elements">
+          <div class="element"><span class="index">21</span>
             <div class="arrow arrow-out">
               <div class="xor"></div>
               <div class="arrow arrow-b-r arrow-result">
-                <section id="result"></section>
+                <section id="result">
+                  <div id="original-message">
+                    <h3>MENSAJE ORIGINAL</h3>
+                    <div class="elements"></div>
+                  </div>
+                  <div id="cipher-sec">
+                    <h3>SECUENCIA CIFRANTE</h3>
+                    <div class="elements"></div>
+                  </div>
+                  <div id="result-message">
+                    <h3>MENSAJE RESULTANTE</h3>
+                    <div class="elements"></div>
+                  </div>
+                </section>
               </div>
             </div>
             <div class="arrow arrow-b-r arrow-operation">
               <div class="xor"></div>
             </div>
           </div>
-          <div class="element pos-2">
+          <div class="element"><span class="index">20</span>
             <div class="arrow arrow-b-r arrow-operation"></div>
           </div>
-          <div class="element pos-22">
+          <div class="element"><span class="index">19</span></div>
+          <div class="element"><span class="index">18</span></div>
+          <div class="element"><span class="index">17</span></div>
+          <div class="element"><span class="index">16</span></div>
+          <div class="element"><span class="index">15</span></div>
+          <div class="element"><span class="index">14</span></div>
+          <div class="element"><span class="index">13</span></div>
+          <div class="element"><span class="index">12</span></div>
+          <div class="element"><span class="index">11</span></div>
+          <div class="element registry"><span class="index">10</span></div>
+          <div class="element"><span class="index">9</span></div>
+          <div class="element"><span class="index">8</span></div>
+          <div class="element"><span class="index">7</span></div>
+          <div class="element"><span class="index">6</span></div>
+          <div class="element"><span class="index">5</span></div>
+          <div class="element"><span class="index">4</span></div>
+          <div class="element"><span class="index">3</span></div>
+          <div class="element"><span class="index">2</span></div>
+          <div class="element"><span class="index">1</span></div>
+          <div class="element"><span class="index">0</span>
             <div class="arrow arrow-r-t arrow-in">
               <div class="value-in"></div>
             </div>
           </div>
         </div>
-        <div class="container">
-          <div class="elements">
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element registry"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-          </div>
-        </div>
+        <div class="values"></div>
       </div>
       <div class="vector" id="vector-LFSR-3">
-        <div class="circuit">
-          <div class="element pos-1">
+        <div class="elements">
+          <div class="element"><span class="index">22</span>
             <div class="arrow arrow-out"></div>
             <div class="arrow arrow-b-r arrow-operation">
               <div class="xor"></div>
             </div>
           </div>
-          <div class="element pos-2">
+          <div class="element"><span class="index">21</span>
             <div class="arrow arrow-b-r arrow-operation"></div>
           </div>
-          <div class="element pos-3">
+          <div class="element"><span class="index">20</span>
             <div class="arrow arrow-b-r arrow-operation"></div>
           </div>
-          <div class="element pos-16">
+          <div class="element"><span class="index">19</span></div>
+          <div class="element"><span class="index">18</span></div>
+          <div class="element"><span class="index">17</span></div>
+          <div class="element"><span class="index">16</span></div>
+          <div class="element"><span class="index">15</span></div>
+          <div class="element"><span class="index">14</span></div>
+          <div class="element"><span class="index">13</span></div>
+          <div class="element"><span class="index">12</span></div>
+          <div class="element"><span class="index">11</span></div>
+          <div class="element registry"><span class="index">10</span></div>
+          <div class="element"><span class="index">9</span></div>
+          <div class="element"><span class="index">8</span></div>
+          <div class="element"><span class="index">7</span>
             <div class="arrow arrow-b-r arrow-operation"></div>
           </div>
-          <div class="element pos-23">
+          <div class="element"><span class="index">6</span></div>
+          <div class="element"><span class="index">5</span></div>
+          <div class="element"><span class="index">4</span></div>
+          <div class="element"><span class="index">3</span></div>
+          <div class="element"><span class="index">2</span></div>
+          <div class="element"><span class="index">1</span></div>
+          <div class="element"><span class="index">0</span>
             <div class="arrow arrow-r-t arrow-in">
               <div class="value-in"></div>
             </div>
           </div>
         </div>
-        <div class="container">
-          <div class="elements">
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element registry"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-            <div class="element"></div>
-          </div>
-        </div>
+        <div class="values"></div>
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>

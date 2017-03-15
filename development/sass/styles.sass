@@ -24,7 +24,7 @@ body
     width: 100%
     height: 100%
     background-color: rgba(#000,.5)
-    z-index: 10
+    z-index: 20
     text-align: center
     display: none
     .box
@@ -64,6 +64,14 @@ body
                 display: block
                 margin: 10px auto 0px
                 cursor: pointer
+            #random-values
+                display: inline-block
+                margin-top: 10px
+                text-transform: uppercase
+                color: $green
+                font-size: 12px
+                cursor: pointer
+                font-weight: bold
 header.mean
     position: fixed
     width: 100%
@@ -90,93 +98,78 @@ header.mean
     height: 600px
 .vector
     position: relative
-    display: inline-block
     height: $height-vector
     // &:hover
     //     .value
     //         transform: translateX(-40px)
     &#vector-LFSR-1
-        .container
+        .values
             width: 760px
-        .circuit
-            .pos-1
-                left: 0px
+        .elements
+            .element:nth-child(1)
                 .arrow-out
                     height: 300px
                     width: 75px
-            .pos-2
-                left: 1 * 40px
+            .element:nth-child(2)
                 .arrow-operation
                     +arrowWH(1,1,4)
-            .pos-3
-                left: 2 * 40px
+            .element:nth-child(3)
                 .arrow-operation
                     +arrowWH(2,2,4)
-            .pos-6
-                left: 5 * 40px
+            .element:nth-child(6)
                 .arrow-operation
                     +arrowWH(5,3,4)
-            .pos-19
-                left: 18 * 40px
+            .element:nth-child(19)
                 .arrow-in
                     width: 11 * $width-element
     &#vector-LFSR-2
-        .container
+        .values
             width: 880px
-        .circuit
-            .pos-1
-                left: 0px
+        .elements
+            .element:nth-child(1)
                 .arrow-out
                     height: 300 - (1 * $height-vector)
                     width: 70px
-            .pos-2
-                left: 1 * 40px
+            .element:nth-child(2)
                 .arrow-operation
                     +arrowWH(1,1,2)
-            .pos-22
-                left: 21 * 40px
+            .element:nth-child(22)
                 .arrow-in
                     width: 14 * $width-element
     &#vector-LFSR-3
-        .container
+        .values
             width: 920px
-        .circuit
-            .pos-1
-                left: 0px
+        .elements
+            .element:nth-child(1)
                 .arrow-out
                     height: 300 - (2 * $height-vector)
                     width: 65px
                 .arrow-operation
                     width: 640px
-            .pos-2
-                left: 1 * 40px
+            .element:nth-child(2)
                 .arrow-operation
                     +arrowWH(1,1,4,640px)
-            .pos-3
-                left: 2 * 40px
+            .element:nth-child(3)
                 .arrow-operation
                     +arrowWH(2,2,4,640px)
-            .pos-16
-                left: 15 * 40px
+            .element:nth-child(16)
                 .arrow-operation
                     +arrowWH(15,3,4,640px)
-            .pos-23
-                left: 22 * 40px
+            .element:nth-child(23)
                 .arrow-in
                     width: 5 * $width-element
 
 
 .element
-    min-width: 40px
+    width: 40px
     height: 40px
 .circuit
     .element
         position: absolute
-.container
-    overflow: hidden
 .elements
     position: relative
     display: flex
+    height: 40px
     //&:hover
         left: -40px
     .element
@@ -186,32 +179,49 @@ header.mean
         &.registry
             background-color: $green
 
-        .value
-            position: relative
-            width: 40px
-            height: 40px
-            display: flex
-            justify-content: center
-            align-items: center
-            font-size: 25px
-            color: #fff
-            transition: all 1s linear
+
         .index
             position: absolute
             right: 2px
             bottom: 0px
             font-size: 10px
             color: #fff
+.values
+    position: absolute
+    left: 0
+    top: 0
+    height: 40px
+    z-index: 10
+    display: flex
+.value
+    position: relative
+    width: 40px
+    height: 40px
+    display: flex
+    justify-content: center
+    align-items: center
+    font-size: 25px
+    color: #fff
+    transition: color .5s linear
 #result
     width: 900px
-    height: 100%
     border: 1px solid #DADADA
-    border-radius: 10px
     top: 50%
     position: relative
     left: 130%
     overflow: auto
     padding: 10px
+    h3
+        padding-left: 20px
+        margin: 5px 0px
+        font-size: 12px
+    .element
+        position: relative
+        color: #fff
+        display: flex
+        justify-content: center
+        align-items: center
+        font-size: 30px
 
 
 .arrow

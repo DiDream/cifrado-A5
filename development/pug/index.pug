@@ -13,136 +13,194 @@ html
                 #close-modal
                     <i class="fa fa-times" aria-hidden="true"></i>
                 form#form-values
+                    label Inserta el mensaje a cifrar
+                    input(type="text" pattern="[01]{0,}" placeholder="010100010..." required=true id="input-message")
                     label Inserta la primera clave. 19 dígitos.
                     input(type="text" pattern="[01]{19,19}" maxlength="19" placeholder="010100010..." required=true id="LFSR-1")
                     label Inserta la segunda clave. 22 dígitos.
                     input(type="text" pattern="[01]{22,22}" maxlength="22" placeholder="010100010..." required=true id="LFSR-2")
                     label Inserta la tercera clave. 23 dígitos.
                     input(type="text" pattern="[01]{23,23}" maxlength="23" placeholder="010100010..." required=true id="LFSR-3")
+                    a#random-values Generar semillas aleatorias
                     button#save-values Guardar
                     
         header.mean
             button#next-step Paso siguiente
             button#new-values Introducir nuevos valores
-            button#random-values Generar valores aleatorios
 
         .cifrado-a51
             .vector#vector-LFSR-1
-                .circuit
-                    .element.pos-1
+                .elements
+                    .element
+                        span.index 18
                         .arrow.arrow-out
                         .arrow.arrow-b-r.arrow-operation
                             .xor
-                    .element.pos-2
+                    .element
+                        span.index 17
                         .arrow.arrow-b-r.arrow-operation
-                    .element.pos-3
+                    .element
+                        span.index 16
                         .arrow.arrow-b-r.arrow-operation
-                    .element.pos-6
+                    .element
+                        span.index 15
+                    .element
+                        span.index 14
+                    .element
+                        span.index 13
                         .arrow.arrow-b-r.arrow-operation
-                    .element.pos-19
+                    .element
+                        span.index 12
+                    .element
+                        span.index 11
+                    .element
+                        span.index 10
+                    .element
+                        span.index 9
+                    .element.registry
+                        span.index 8
+                    .element
+                        span.index 7
+                    .element
+                        span.index 6
+                    .element
+                        span.index 5
+                    .element
+                        span.index 4
+                    .element
+                        span.index 3
+                    .element
+                        span.index 2
+                    .element
+                        span.index 1
+                    .element
+                        span.index 0
                         .arrow.arrow-r-t.arrow-in
                             .value-in
-                .container
-                    .elements
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element.registry
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
+                .values
                     
             .vector#vector-LFSR-2
-                .circuit
-                    .element.pos-1
+                .elements
+                    .element
+                        span.index 21
                         .arrow.arrow-out
                             .xor
                             .arrow.arrow-b-r.arrow-result
                                 section#result
+                                    #original-message
+                                        h3 MENSAJE ORIGINAL
+                                        .elements
+                                    #cipher-sec
+                                        h3 SECUENCIA CIFRANTE
+                                        .elements
+                                    #result-message
+                                        h3 MENSAJE RESULTANTE
+                                        .elements
                         .arrow.arrow-b-r.arrow-operation
                             .xor
-                    .element.pos-2
+                    .element
+                        span.index 20
                         .arrow.arrow-b-r.arrow-operation
-                    .element.pos-22
+                    .element
+                        span.index 19
+                    .element
+                        span.index 18
+                    .element
+                        span.index 17
+                    .element
+                        span.index 16
+                    .element
+                        span.index 15
+                    .element
+                        span.index 14
+                    .element
+                        span.index 13
+                    .element
+                        span.index 12
+                    .element
+                        span.index 11
+                    .element.registry
+                        span.index 10
+                    .element
+                        span.index 9
+                    .element
+                        span.index 8
+                    .element
+                        span.index 7
+                    .element
+                        span.index 6
+                    .element
+                        span.index 5
+                    .element
+                        span.index 4
+                    .element
+                        span.index 3
+                    .element
+                        span.index 2
+                    .element
+                        span.index 1
+                    .element
+                        span.index 0
                         .arrow.arrow-r-t.arrow-in
                             .value-in
-                .container
-                    .elements
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element.registry
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-
+                .values
             .vector#vector-LFSR-3
-                .circuit
-                    .element.pos-1
+                .elements
+                    .element
+                        span.index 22
                         .arrow.arrow-out
                         .arrow.arrow-b-r.arrow-operation
                             .xor
-                    .element.pos-2
+                    .element
+                        span.index 21
                         .arrow.arrow-b-r.arrow-operation
-                    .element.pos-3
+                    .element
+                        span.index 20
                         .arrow.arrow-b-r.arrow-operation
-                    .element.pos-16
+                    .element
+                        span.index 19
+                    .element
+                        span.index 18
+                    .element
+                        span.index 17
+                    .element
+                        span.index 16
+                    .element
+                        span.index 15
+                    .element
+                        span.index 14
+                    .element
+                        span.index 13
+                    .element
+                        span.index 12
+                    .element
+                        span.index 11
+                    .element.registry
+                        span.index 10
+                    .element
+                        span.index 9
+                    .element
+                        span.index 8
+                    .element
+                        span.index 7
                         .arrow.arrow-b-r.arrow-operation
-                    .element.pos-23
+                    .element
+                        span.index 6
+                    .element
+                        span.index 5
+                    .element
+                        span.index 4
+                    .element
+                        span.index 3
+                    .element
+                        span.index 2
+                    .element
+                        span.index 1
+                    .element
+                        span.index 0
                         .arrow.arrow-r-t.arrow-in
                             .value-in
-                .container
-                    .elements
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element.registry
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
-                        .element
+                .values
         script(src="https://code.jquery.com/jquery-2.2.4.min.js"
 			  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
 			  crossorigin="anonymous")
